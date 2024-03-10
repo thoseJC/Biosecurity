@@ -1,0 +1,4 @@
+Flask==2.2.5
+Flask_Hashing
+mysql-connector-python==8.0.33
+Werkzeug==2.2.3

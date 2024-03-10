@@ -1,0 +1,107 @@
+{% extends "common/home_admin_base.html" %}
+
+{% block title %}
+    Edit Staff
+{% endblock %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/index_admin/">Home</a></li>
+        <li><a href="/staff_list/">Staff List</a></li>
+        <li class="active">Edit Staff</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="form-horizontal" action="/edit_staff/" method="post" role="form"
+              style="padding: 5px 120px">
+            <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">
+                Edit Staff
+            </h1>
+            <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Staff number</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="staff_number" placeholder="" readonly
+                           value="{{ staff[0] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">First name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="first_name" placeholder=""
+                           value="{{ staff[1] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Last name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="last_name" placeholder=""
+                           value="{{ staff[2] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Email</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="email" placeholder=""
+                           value="{{ staff[3] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Phone number</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="phone_number" placeholder=""
+                           value="{{ staff[4] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Hire date</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="hire_date" placeholder=""
+                           value="{{ staff[5] }}"
+                           readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Position</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="position" placeholder="" value="{{ staff[6] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Department</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="department" placeholder="" value="{{ staff[7] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Status</label>
+                <div class="col-md-6">
+                    <select class="form-control" name="status">
+                        {% if staff[8] == 1 %}
+                            <option value="1" selected>Active</option>
+                            <option value="0">Inactive</option>
+                        {% else %}
+                            <option value="1">Active</option>
+                            <option value="0" selected>Inactive</option>
+                        {% endif %}
+
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: center;margin: auto">
+                    <button type="submit" class="btn btn-info">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

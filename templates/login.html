@@ -1,0 +1,61 @@
+{% extends "common/home_base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Login</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="form-horizontal" action="/login/" method="post" role="form" style="padding: 5px 120px">
+            <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">Log in</h1>
+            <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Email</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="email" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Password</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" name="password" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">User type</label>
+                <div class="col-md-6">
+                    <label class="radio-inline">
+                        <input type="radio" name="user_type" id="" value="1" checked> Pest Controller
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="user_type" id="" value="2"> Staff
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="user_type" id="" value="3"> Administrator
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: center;margin: auto">
+                    <button type="submit" class="btn btn-info">Log in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

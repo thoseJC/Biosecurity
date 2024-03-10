@@ -1,0 +1,74 @@
+{% extends "common/home_admin_base.html" %}
+
+{% block title %}
+    Pest Guide List
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/index_admin/">Home</a></li>
+        <li class="active">Pest Guide List</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{#    <div class="row">#}
+{#        <div class="col-md-12" style="text-align: center;margin: 10px auto">#}
+{#            <form class="form-inline" role="form">#}
+{#                <div class="form-group">#}
+{#                    <label class="sr-only" for="name">search</label>#}
+{#                    <input type="text" class="form-control" id="name" placeholder="Please enter your search">#}
+{#                </div>#}
+{#                <button type="submit" class="btn btn-info">search</button>#}
+{#            </form>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+    <div class="row flex-nowrap" style="padding-left: 10px;padding-right: 10px">
+        <table class="table table-striped table-hover table-responsive table-condensed">
+            <thead>
+            <tr>
+                <th style="text-align: center">Animal ID</th>
+                <th style="text-align: center">Name</th>
+                <th style="text-align: center">Description</th>
+                <th style="text-align: center">Distribution</th>
+                <th style="text-align: center">Control Methods</th>
+                <th style="text-align: center">Image</th>
+                <th style="text-align: center;width: 90px">Operate</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pest_guide in pest_guide_list %}
+
+                <tr style="max-height: 50px;overflow: hidden;">
+                    <th style="font-weight: 200;font-size: 0.8em;text-align: center">{{ pest_guide[0] }}</th>
+                    <th style="font-weight: 200;font-size: 0.8em;text-align: center">{{ pest_guide[1] }}</th>
+                    <th style="font-weight: 200;font-size: 0.8em;text-align: center">{{ pest_guide[2][:130]+"..." }}</th>
+                    <th style="font-weight: 200;font-size: 0.8em;text-align: center">{{ pest_guide[3][:130]+"..." }}</th>
+                    <th style="font-weight: 200;font-size: 0.8em;text-align: center">{{ pest_guide[8][:130]+"..." }}</th>
+                    <th style="text-align: center">
+                        <img src="/static/upload/{{ pest_guide[9] }}" alt=""style="width: 100px;height: 70px">
+                    </th>
+                    <th style="font-size: 0.8em;text-align: center">
+                        <a href="/edit_pest_guide/?guide_id={{ pest_guide[0] }}" class="btn btn-info btn-xs">Edit</a>
+                        <a href="/guide_detail/?guide_id={{ pest_guide[0] }}" class="btn btn-success btn-xs">Detail</a>
+                        <a href="/pest_guide_image_edit/?guide_id={{ pest_guide[0] }}" class="btn btn-primary btn-xs">Picture edit</a>
+                    </th>
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <script>
+        $(function () {
+            $(".index_admin").addClass("active");
+        })
+    </script>
+{% endblock %}
+

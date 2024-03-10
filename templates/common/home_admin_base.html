@@ -1,0 +1,122 @@
+<meta charset="utf-8" xmlns:background-color="http://www.w3.org/1999/xhtml"
+      xmlns:background-color="http://www.w3.org/1999/xhtml"/>
+<title>{% block title %}{% endblock %}</title>
+<!-- Bootstrap CSS link -->
+{#<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"#}
+{#      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">#}
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Animal pests in New Zealand</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                {% if session['role'] == "2" %}
+                    <li><a href="/index_admin/">Staff Page</a></li>
+                {% endif %}
+                {% if session['role'] == "3" %}
+                    <li><a href="/index_admin/">Administrator Page</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if session['loggedin'] %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>
+                            {{ session['username'] }} <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/my_information?userType={{ session['role'] }}&userId={{ session['userId'] }}">
+                                My Information
+                            </a></li>
+                            <li>
+                                <a href="/update_password?userType={{ session['role'] }}&userId={{ session['userId'] }}">
+                                    Update Password
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                {% else %}
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <!-- Adjusted Left Sidebar -->
+        <div class="col-md-2 sidebar" style="background-color: #f0f8ff;">
+            <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 100%; height: 100vh;">
+                <div style="font-size: 1.6em;font-weight: bold;margin: 20px auto">Animal pests in New Zealand</div>
+                <ul class="nav nav-pills flex-column mb-auto" style="font-size: 1.2em; ">
+                    {% if session['role'] == "2" or  session['role'] == "3" %}
+                        <li class="nav-item index_admin" style="width: 100%">
+                            <a href="/index_admin/" class="nav-link active" aria-current="page">
+                                Pest Guide List
+                            </a>
+                        </li>
+                        <li class="nav-item add_pest_guide" style="width: 100%">
+                            <a href="/add_pest_guide/" class="nav-link active" aria-current="page">
+                                Add Pest Guide
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if session['role'] == "3" %}
+                        <li class="nav-item pest_controller_list" style="width: 100%">
+                            <a href="/pest_controller_list/" class="nav-link active" aria-current="page">
+                                Pest Controller List
+                            </a>
+                        </li>
+                        <li class="nav-item add_pest_controller" style="width: 100%">
+                            <a href="/add_pest_controller/" class="nav-link active" aria-current="page">
+                                Add Pest Controller
+                            </a>
+                        </li>
+                        <li class="nav-item staff_list" style="width: 100%">
+                            <a href="/staff_list/" class="nav-link active" aria-current="page">
+                                Staff List
+                            </a>
+                        </li>
+                        <li class="nav-item add_staff" style="width: 100%">
+                            <a href="/add_staff/" class="nav-link active" aria-current="page">
+                                Add Staff
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- Content Area -->
+        <div class="col-md-10">
+            <section class="content">
+                {% block breadcrumb %}{% endblock %}
+
+                {% block content %}{% endblock %}
+            </section>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+

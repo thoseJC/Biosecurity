@@ -1,0 +1,77 @@
+{% extends "common/home_admin_base.html" %}
+
+{% block title %}
+    More Picture Editing
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/index_admin/">Home</a></li>
+        <li><a href="/index_admin/">Pest Guide List</a></li>
+        <li class="active">More Picture Editing</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="col-md-8 col-md-offset-2">
+
+            <h1 style="text-align:center">{{ pest_guide[1] }}</h1>
+            <div style="text-align:center">
+                <img src="/static/upload/{{ pest_guide[9] }}" alt="{{ pest_guide[1] }}">
+            </div>
+            <h2>Description</h2>
+            <div>{{ pest_guide[2] }}</div>
+            <hr>
+        </div>
+
+
+        <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">
+            Existing picture
+        </h1>
+
+        {% for image in pest_image_list %}
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <div style="text-align:center">
+                        <img src="/static/upload/{{ image[1] }}">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a href="/delete_other_image/?image_id={{ image[0] }}&animal_id={{ pest_guide[0] }}" class="btn btn-danger btn-sm">Delete The Picture</a>
+                </div>
+
+            </div>
+            <hr>
+        {% endfor %}
+
+        <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">
+            Add New Picture
+        </h1>
+        <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+        <form class="form-horizontal" action="/pest_guide_image_edit/" enctype="multipart/form-data"
+              method="post" role="form" style="padding: 5px 120px">
+            <input type="hidden" value="{{ pest_guide[0] }}" name="animal_id">
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Select a new image</label>
+                <div class="col-md-4">
+                    <input type="file" class="form-control" name="primary_image">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-info btn-sm">Add The Picture</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+    </div>
+{#    <script>#}
+{#        $(function () {#}
+{#            $(".index_admin").addClass("active");#}
+{#        })#}
+{#    </script>#}
+{% endblock %}
+
+
+

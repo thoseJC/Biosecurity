@@ -1,0 +1,45 @@
+{% extends "common/home_base.html" %}
+
+{% block title %}
+    Animal pests in New Zealand
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Pest Guide List</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+{#    <div class="row">#}
+{#        <div class="col-md-12" style="text-align: center;margin: 10px auto">#}
+{#            <form class="form-inline" role="form">#}
+{#                <div class="form-group">#}
+{#                    <label class="sr-only" for="name">search</label>#}
+{#                    <input type="text" class="form-control" id="name" placeholder="Please enter your search">#}
+{#                </div>#}
+{#                <button type="submit" class="btn btn-info">search</button>#}
+{#            </form>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+    <div class="row flex-nowrap">
+        {% for pest_guide in pest_guide_list %}
+            <div class="col-md-3" style="text-align: center">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="height: 550px;display: flex;flex-direction: column;align-items: stretch;justify-content: center;">
+                        <a href="/guide_detail/?guide_id={{ pest_guide[0] }}">
+                            <img src="/static/upload/{{ pest_guide[9] }}" alt="{{ pest_guide[1] }}"
+                                        style="width: 80%;">
+                        </a>
+                        <a href="/guide_detail/?guide_id={{ pest_guide[0] }}"><h3>{{ pest_guide[1] }}</h3></a>
+                        <small>{{ pest_guide[2] }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,92 @@
+{% extends "common/home_base.html" %}
+
+{% block title %}
+    My Information
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">My information</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="form-horizontal" action="/my_information/" method="post" role="form" style="padding: 5px 120px">
+            <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">My
+                Information</h1>
+            <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+            <input type="hidden" class="form-control" name="user_type" placeholder="" value="{{ user_type }}">
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Id number</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="user_id" placeholder="" readonly
+                           value="{{ account[0] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">First name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="first_name" placeholder="" value="{{ account[1] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Last name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="last_name" placeholder="" value="{{ account[2] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Address</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="address" placeholder="" value="{{ account[3] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Email</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="email" placeholder="" value="{{ account[4] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Phone number</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="phone_number" placeholder="" value="{{ account[5] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Date joined</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="date_joined" placeholder="" value="{{ account[6] }}"
+                           readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Status</label>
+                <div class="col-md-6">
+                    {% if account[7] == 1 %}
+                        <input type="text" class="form-control" name="status" placeholder="" value="active"
+                               readonly>
+                    {% else %}
+                        <input type="text" class="form-control" name="status" placeholder="" value="inactive"
+                               readonly>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: center;margin: auto">
+                    <button type="submit" class="btn btn-info">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+

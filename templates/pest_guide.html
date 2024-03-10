@@ -1,0 +1,65 @@
+{% extends "common/home_base.html" %}
+
+{% block title %}
+    Pest Guide Detail
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Pest Guide List</a></li>
+        <li class="active">Pest Guide Detail</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <div class="row flex-nowrap" style="margin-bottom: 30px">
+        <div class="col-md-8 col-md-offset-2">
+
+            <h1 style="text-align:center">{{ pest_guide[1] }}</h1>
+            <div style="text-align:center">
+                <img src="/static/upload/{{ pest_guide[9] }}" alt="{{ pest_guide[1] }}">
+            </div>
+
+            <h2>Description</h2>
+            <div>{{ pest_guide[2] }}</div>
+            <hr>
+
+            <h2>Distribution</h2>
+            <div>{{ pest_guide[3] }}</div>
+            <hr>
+
+            <h2>Size</h2>
+            <div>{{ pest_guide[4] }}</div>
+            <hr>
+
+            <h2>Droppings</h2>
+            <div>{{ pest_guide[5] }}</div>
+            <hr>
+
+            <h2>Foot Prints</h2>
+            <div>{{ pest_guide[6] }}</div>
+            <hr>
+
+            <h2>Impacts</h2>
+            <div>{{ pest_guide[7] }}</div>
+            <hr>
+
+            <h2>Control Methods</h2>
+            <div>{{ pest_guide[8] }}</div>
+            <hr>
+
+            <h2>Other picture</h2>
+            {% for pest_image in pest_image_list %}
+                <div style="text-align:center">
+                    <img src="/static/upload/{{ pest_image[1] }}" alt="{{ pest_guide[1] }}">
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+
+
+    </div>
+{% endblock %}
+

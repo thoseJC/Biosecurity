@@ -1,0 +1,94 @@
+{% extends "common/home_admin_base.html" %}
+
+{% block title %}
+    Add Pest Controller
+{% endblock %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/index_admin/">Home</a></li>
+        <li class="active">Add Pest Controller</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="form-horizontal" action="/add_pest_controller/" method="post" role="form"
+              style="padding: 5px 120px">
+            <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">
+                Add Pest Controller
+            </h1>
+            <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">First name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="first_name" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Last name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="last_name" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Address</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="address" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Email</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="email" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Phone number</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="phone_number" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Status</label>
+                <div class="col-md-6">
+                    <select class="form-control" name="status">
+                        <option value="1" selected>Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Password</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" name="password1" placeholder="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Reenter password</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" name="password2" placeholder="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: center;margin: auto">
+                    <button type="submit" class="btn btn-info">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        $(function () {
+            $(".add_pest_controller").addClass("active");
+        })
+    </script>
+
+{% endblock %}
+
+
+

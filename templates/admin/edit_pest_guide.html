@@ -1,0 +1,100 @@
+{% extends "common/home_admin_base.html" %}
+
+{% block title %}
+    Edit Pest Guide
+{% endblock %}
+
+
+{% block breadcrumb %}
+    <ul class="breadcrumb">
+        <li><a href="/index_admin/">Home</a></li>
+        <li><a href="/index_admin/">Pest Guide List</a></li>
+        <li class="active">Edit Pest Guide</li>
+    </ul>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <form class="form-horizontal" action="/edit_pest_guide/" enctype="multipart/form-data"
+              method="post" role="form" style="padding: 5px 120px">
+            <h1 class="col-sm-12" style="text-align: center;background: #9bceed; margin-bottom: 30px;">
+                Edit Pest Guide
+            </h1>
+            <div style="color:red;text-align: center;margin-bottom: 30px;">{{ msg }}</div>
+
+            <input type="hidden" name="animal_id" value="{{ pest_guide[0] }}">
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Animal name</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="animal_name" placeholder="" value="{{ pest_guide[1] }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Description</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="3" name="description">{{ pest_guide[2] }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Distribution</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="2" name="distribution">{{ pest_guide[3] }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Size</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="2" name="size">{{ pest_guide[4] }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Droppings</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="3" name="droppings">{{ pest_guide[5] }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Foot Prints</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="2" name="foot_prints">{{ pest_guide[6] }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Impacts</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="3" name="impacts">{{ pest_guide[7] }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Control Methods</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" rows="3" name="control_methods">{{ pest_guide[8] }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-md-4 control-label">Primary Image</label>
+                <div class="col-md-6">
+                    <input type="file" class="form-control" name="primary_image">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12" style="text-align: center;margin: auto">
+                    <button type="submit" class="btn btn-info">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{#    <script>#}
+{#    $(function () {#}
+{#        $(".add_pest_guide").addClass("active");#}
+{#    })#}
+{#    </script>#}
+{% endblock %}
+
+
+
