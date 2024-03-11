@@ -17,7 +17,7 @@ detailed information such as scientific name, description, distribution, size, d
  Staffs are able to manage their own profile (update personal information and change password), view Pest Controller profiles and manage the guide (view, add, update and delete 
 details and images – including selecting the primary image).   
 
- Administrators should have full access to the system and the ability to manage their own profile (update personal information and change password), manage Pest Controllers (view, 
+ Administrators have full access to the system and the ability to manage their own profile (update personal information and change password), manage Pest Controllers (view, 
 add, update and delete), manage staff (view, add, update and delete) and manage the guide(view, add, update and delete details and images).
 
 ## How to Use
