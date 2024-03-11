@@ -1,4 +1,4 @@
-uj# Animal Pests in New Zealand
+# Animal Pests in New Zealand
 
 ## Introduction
 This website provides detailed information on various animal pests found in New Zealand. It serves as a guide to help identify and understand the characteristics and impacts of these pests.
@@ -7,17 +7,17 @@ This website provides detailed information on various animal pests found in New 
 - **Pest Guide List:** Detailed descriptions of various pests, including insects, mammals, and birds.
 - **User Account:** There are three user roles in this system: Pest Controller, Staff and Administrator. 
 
- There is role-base access control system that restricts access to certain pages or features based on the user’s role.   
+• There is role-base access control system that restricts access to certain pages or features based on the user’s role.   
 
- Pest Controller users are able to manage their own profile (update personal information and change password).   
+• Pest Controller users are able to manage their own profile (update personal information and change password).   
 
- Pest Controller Users are available to view the guide which will contain a primary image of each animal pest and its common name. Clicking on each primary image will reveal further 
+• Pest Controller Users are available to view the guide which will contain a primary image of each animal pest and its common name. Clicking on each primary image will reveal further 
 detailed information such as scientific name, description, distribution, size, droppings, foot prints, impacts, control methods, and further images.  
 
- Staffs are able to manage their own profile (update personal information and change password), view Pest Controller profiles and manage the guide (view, add, update and delete 
+• Staffs are able to manage their own profile (update personal information and change password), view Pest Controller profiles and manage the guide (view, add, update and delete 
 details and images – including selecting the primary image).   
 
- Administrators have full access to the system and the ability to manage their own profile (update personal information and change password), manage Pest Controllers (view, 
+• Administrators have full access to the system and the ability to manage their own profile (update personal information and change password), manage Pest Controllers (view, 
 add, update and delete), manage staff (view, add, update and delete) and manage the guide(view, add, update and delete details and images).
 
 ## How to Use
